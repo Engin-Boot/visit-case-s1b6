@@ -5,14 +5,9 @@ using namespace std;
  
 int main()
 {
-	string FileName = "../TestFootfallData.csv";
-	string str=ReadAndCheckInputFile(FileName);
-	if (str == "File Read successfully")
-	{
-		string s = ConvertToJson(FileName);
-	}	
-	else
-		cout << str;   //Either File has invalid data or file does not exist
-	getchar();
-  return 0;
+	string FileName = "../FootfallData.csv";
+	string s=ReadInputFileAndPrint(FileName);
+	if (s != "File read and printed on console successfully") //else prints file data
+		cout << s;
+  	return 0;
 }
