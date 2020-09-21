@@ -12,7 +12,7 @@ using namespace std;
 //Returns true if s is a number else false
 bool checkEachEntry(string s)
 {
-	for (int i = 0; i < s.length(); i++)
+	for (unsigned int i = 0; i < s.length(); i++)
 	{
 		if (isdigit(s[i]) == false)
 			return false;
@@ -143,9 +143,13 @@ string checkInputData(vector <vector<string>> rec)
 void printFootFallData(vector <vector<string>> record)
 {
 	cout << "id,Hrs,min,sec,day,date,month,year,Count\n";
-	for (int i = 0; i < record.size(); i++) {
-		for (int j = 0; j < record[i].size(); j++)
-			cout << record[i][j] << ",";
+	cout << "id,Hrs,min,sec,day,date,month,year,Count\n";
+	for (std::vector<string> vec : record)
+	{
+		for (string rowdata : vec)
+		{
+			cout << rowdata << ",";
+		}
 		cout << endl;
 	}
 }
