@@ -15,13 +15,13 @@ TEST_CASE("When a non exiting file is received by Sender then it prints file doe
 }
 
 TEST_CASE("When file received by Sender contains Invalid data then it prints File has some Invalid Data on console") {
-	string FileName = "../TestFootfallData.csv";
+	string FileName = "CaseStudy/TestFootfallData.csv";
 	string s = ReadInputFileAndPrint(FileName);
 	REQUIRE(s == "File has some Invalid Data");
 }
 
 TEST_CASE("When file received by Sender contains valid data then it converts CSV data in a vector structure on console") {
-	string FileName = "../FootFallData.csv";
+	string FileName = "CaseStudy/FootFallData.csv";
 	string str = ReadInputFileAndPrint(FileName);
 	REQUIRE(str == "File read and printed on console successfully");
 }
