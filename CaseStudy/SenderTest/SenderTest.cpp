@@ -11,7 +11,7 @@ using namespace std;
 TEST_CASE("When a non exiting file is received by Sender then it prints file does not exist") {
 	string FileName="../FootFall.csv";
 	string s = ReadInputFileAndPrint(FileName);
-	REQUIRE( s== "File does not exist");
+	REQUIRE( s == "File does not exist");
 }
 
 TEST_CASE("When file received by Sender contains Invalid data then it prints File has some Invalid Data on console") {
