@@ -27,51 +27,41 @@ vector <vector<string>> ReadInputFile(string FileName)
 {
 	ifstream csvFile;
 	csvFile.open(FileName);
-		string line;
-		getline(csvFile, line); // skip the 1st line
+	string line;
+	getline(csvFile, line); // skip the 1st line
 	
-		vector <vector<string>> record;
-		while (getline(csvFile, line))
+	vector <vector<string>> record;
+	while (getline(csvFile, line))
+	{
+	 	if (line.empty()) // skip empty lines:
 		{
-			if (line.empty()) // skip empty lines:
-			{
-				cout << "empty line!" << endl;
-				continue;
-			}
-			istringstream iss(line);
-			string lineStream;
-			vector <string> row;
-			while (getline(iss, lineStream, ','))
-			{
-				row.push_back(lineStream);
-			}
-			record.push_back(row);
+			continue;
 		}
-		
-		csvFile.close();
-	
-		return record;
+		istringstream iss(line);
+		string lineStream;
+		vector <string> row;
+		while (getline(iss, lineStream, ','))
+		{
+			row.push_back(lineStream);
+		}
+		record.push_back(row);
+	}
+	return record;
 }
 // checks converted vector data is valid or not
 string checkInputData(vector <vector<string>> rec)
 {
-	bool flag = true;
 	for (std::vector<string> vec : rec)
 	{
 		for (string rowdata : vec)
 		{
 			if (!checkEachEntry(rowdata))
 			{
-				flag = false;
 				return "File has Invalid Data";
 			}	
 		}
 	}
-	if (flag == true)
-	{
-		return "File has valid data";
-	}
-	return " ";
+	return "File has valid data";
 }
 //prints footfall data on console
 void printFootFallData(vector <vector<string>> record)
