@@ -17,4 +17,4 @@ jobs:
       run: pip install lizard
 
     - name: Limit complexity
-      run: $HOME/.local/bin/lizard --CCN 3 -x"./CaseStudy/SenderTest/catch.hpp" -x"./CaseStudy/ReceiverTest/catch.hpp" -x"./CaseStudy/jsoncons-0.156.0/*.hpp"
+      run: $HOME/.local/bin/lizard --CCN 3 -x"./CaseStudy/SenderTest/catch.hpp" -x"./CaseStudy/ReceiverTest/catch.hpp" -x"./CaseStudy/jsoncons-0.156.0/*.hpp" -x"./CaseStudy/jsoncons-0.156.0/*.cpp"
