@@ -100,7 +100,7 @@ string ReadInputFileAndPrint(string FileName)
 			return "File read and printed on console successfully";
 		}
 		else
-			return "File has some invalid Data";
+			return "File has some Invalid Data";
 	}
 	else
 		return "File does not exist";	
