@@ -33,10 +33,10 @@ vector <vector<string>> ReadInputFile(string FileName)
 	vector <vector<string>> record;
 	while (getline(csvFile, line))
 	{
-	 	if (line.empty()) // skip empty lines:
+	 	/*if (line.empty()) // skip empty lines:
 		{
 			continue;
-		}
+		}*/
 		istringstream iss(line);
 		string lineStream;
 		vector <string> row;
@@ -66,7 +66,6 @@ string checkInputData(vector <vector<string>> rec)
 //prints footfall data on console
 void printFootFallData(vector <vector<string>> record)
 {
-	cout << "id,Hrs,min,sec,day,date,month,year,Count\n";
 	cout << "id,Hrs,min,sec,day,date,month,year,Count\n";
 	for (std::vector<string> vec : record)
 	{
