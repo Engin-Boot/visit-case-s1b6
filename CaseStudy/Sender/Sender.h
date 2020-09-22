@@ -7,7 +7,7 @@
 using namespace std;
 
 //Returns true if entry is a number else false
-bool checkEachEntry(string s)
+/*bool checkEachEntry(string s)
 {
 	for (unsigned int i = 0; i < s.length(); i++)
 	{
@@ -15,7 +15,7 @@ bool checkEachEntry(string s)
 			return false;
 	}	
 	return true;
-}
+}*/
 // checks if file can be opened or not
 bool is_file_open(string FileName)
 {
@@ -55,10 +55,15 @@ string checkInputData(vector <vector<string>> rec)
 	{
 		for (string rowdata : vec)
 		{
-			if (!checkEachEntry(rowdata))
+			/*if (!checkEachEntry(rowdata))
 			{
 				return "File has Invalid Data";
-			}	
+			}*/
+			for (unsigned int i = 0; i < rowdata.length(); i++)
+			{
+				if (isdigit(rowdata[i]) == false)
+				return "File has Invalid Data";
+			}
 		}
 	}
 	return "File has valid data";
