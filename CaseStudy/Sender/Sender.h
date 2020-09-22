@@ -48,19 +48,31 @@ vector <vector<string>> ReadInputFile(string FileName)
 	}
 	return record;
 }
+
+bool checkRow(vector<string> row)
+{
+	for (string rowdata : row)
+	{
+		if (!checkEachEntry(rowdata))
+		{
+			return false;
+		}
+	}
+	return true;
+}
 // checks converted vector data is valid or not
 string checkInputData(vector <vector<string>> rec)
 {
+	//bool flag = true;
 	for (std::vector<string> vec : rec)
 	{
-		for (string rowdata : vec)
-		{
-			if (!checkEachEntry(rowdata))
+		if (!checkRow(vec))
+			return "File has Invalid Data";
+			/*if (!checkEachEntry(rowdata))
 			{
+				flag = false;
 				return "File has Invalid Data";
-			}
-			
-		}
+			}	*/
 	}
 	return "File has valid data";
 }
