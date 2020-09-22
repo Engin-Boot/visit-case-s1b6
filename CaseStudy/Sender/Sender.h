@@ -33,10 +33,6 @@ vector <vector<string>> ReadInputFile(string FileName)
 	vector <vector<string>> record;
 	while (getline(csvFile, line))
 	{
-	 	/*if (line.empty()) // skip empty lines:
-		{
-			continue;
-		}*/
 		istringstream iss(line);
 		string lineStream;
 		vector <string> row;
@@ -48,7 +44,7 @@ vector <vector<string>> ReadInputFile(string FileName)
 	}
 	return record;
 }
-
+// check each row data
 bool checkRow(vector<string> row)
 {
 	for (string rowdata : row)
@@ -68,11 +64,6 @@ string checkInputData(vector <vector<string>> rec)
 	{
 		if (!checkRow(vec))
 			return "File has Invalid Data";
-			/*if (!checkEachEntry(rowdata))
-			{
-				flag = false;
-				return "File has Invalid Data";
-			}	*/
 	}
 	return "File has valid data";
 }
