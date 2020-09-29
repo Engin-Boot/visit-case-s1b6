@@ -38,12 +38,10 @@ vector<InputData> InputData::ReadData()
 	cout << "Inside Read data";
 	vector<InputData> footFallData;
 	string row;
-	//string s = ReadInputFileAndPrint(FileName);
 	getline(cin, row);  //column headings
 
 	while (getline(cin, row))
 	{
-		//stringstream s(row);
 		footFallData=storeInputData(footFallData,row);
 	}
 	return footFallData;
@@ -51,7 +49,6 @@ vector<InputData> InputData::ReadData()
 
 vector<InputData>  InputData::storeInputData(vector<InputData> footFallData, const string row)
 {
-	cout << "Inside store data";
 	vector<int> Record;
 	string entry;
 	stringstream rowdata(row);
@@ -71,8 +68,7 @@ void InputData::avgFootfallPerHour(vector<InputData> footFallData)
 	cout << "Inside avg footfall data";
 	int sum = 0;
 	unsigned int i=0;
-	InputData Iobj(footFallData[0].day_of_month,footFallData[0].month,footFallData[0].year,footFallData[0].footfall_count, footFallData[0].hourlyAverage);
-	cout << typeid(footFallData.size()).name();
+	InputData Iobj(footFallData[0].day_of_month,footFallData[0].month,footFallData[0].year,footFallData[0].footfall_count,0);
 	while(i<footFallData.size())
 	{
 		if (Iobj.day_of_month == footFallData[i].day_of_month)
@@ -83,7 +79,9 @@ void InputData::avgFootfallPerHour(vector<InputData> footFallData)
 		else
 			break;
 	}
-	footFallData[0].hourlyAverage = float(sum) / 6;
-	cout << Iobj.hourlyAverage;
+	cout<<sum<<endl;
+	//footFallData[0].hourlyAverage = float(sum) / 6;
+	Iobj.hourlyAverage=float(sum) / 6;
+	cout<<Iobj.hourlyAverage;
 	//return footFallData;
 }
