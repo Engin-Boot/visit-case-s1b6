@@ -30,7 +30,7 @@ class InputData
 
 };
 
-InputData::InputData(int i, int h, int min, int s, int d, int dt, int m, int y, int c) :id(i), hrs(h),min(min),sec(s), day_of_week(d), day_of_month(d), month(m), year(y), footfall_count(c) {}
+InputData::InputData(int i, int h, int min, int s, int d, int dt, int m, int y, int c) :id(i), hrs(h),min(min),sec(s), day_of_week(d), day_of_month(dt), month(m), year(y), footfall_count(c) {}
 InputData::InputData(int dt, int m, int y, int c, float avg ):day_of_month(dt), month(m), year(y), footfall_count(c), hourlyAverage(avg) {}
 
 vector<InputData> InputData::ReadData()
@@ -69,7 +69,8 @@ vector<InputData>  InputData::storeInputData(vector<InputData> footFallData, con
 void InputData::avgFootfallPerHour(vector<InputData> footFallData)
 {
 	cout << "Inside avg footfall data";
-	int sum = 0,i=0;
+	int sum = 0;
+	unsigned int i=0;
 	InputData Iobj(footFallData[0].day_of_month,footFallData[0].month,footFallData[0].year,footFallData[0].footfall_count, footFallData[0].hourlyAverage);
 	cout << typeid(footFallData.size()).name();
 	while(i<footFallData.size())
